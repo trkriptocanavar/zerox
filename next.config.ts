@@ -3,7 +3,6 @@ import path from 'path';
 
 const nextConfig: NextConfig = {
   webpack: (config) => {
-    // Node modüllerini tarayıcıda kapat
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -13,7 +12,6 @@ const nextConfig: NextConfig = {
       worker_threads: false,
     };
 
-    // Metamask SDK'nın istediği async-storage modülünü boş dosyaya yönlendir
     config.resolve.alias = {
       ...(config.resolve.alias ?? {}),
       '@react-native-async-storage/async-storage': path.resolve(

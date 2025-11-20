@@ -10,7 +10,6 @@ export const PortfolioChart = () => {
   useEffect(() => {
     if (!chartContainerRef.current) return;
 
-    // varsa eski chart'ı temizle
     if (chartInstance.current) {
       chartInstance.current.remove();
       chartInstance.current = null;

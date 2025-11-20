@@ -1,6 +1,6 @@
 'use client';
 
-import { createChart, ColorType, IChartApi } from 'lightweight-charts';
+import { createChart, ColorType, IChartApi, Time } from 'lightweight-charts';
 import React, { useEffect, useRef } from 'react';
 
 export const PortfolioChart = () => {
@@ -40,14 +40,14 @@ export const PortfolioChart = () => {
       lineWidth: 2,
     });
 
-    const data: { time: number; value: number }[] = [];
+    const data: { time: Time; value: number }[] = [];
     let value = 1000;
     const now = Math.floor(Date.now() / 1000);
 
     for (let i = 30; i >= 0; i--) {
       value = value * (1 + (Math.random() - 0.45) * 0.1);
       data.push({
-        time: now - i * 24 * 60 * 60,
+        time: (now - i * 24 * 60 * 60) as Time,
         value,
       });
     }
